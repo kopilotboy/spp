@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signalement App</title>
+</head>
+<body>
+
+<h2>Rapòte yon itilizatè</h2>
+
+<form id="reportForm">
+  <label>Nimewo WhatsApp:</label><br>
+  <input type="text" id="number"><br><br>
+
+  <label>Rezon:</label><br>
+  <select id="reason">
+    <option>Spam</option>
+    <option>Arnaque</option>
+    <option>Menas</option>
+  </select><br><br>
+
+  <button type="submit">Voye Rapò</button>
+</form>
+
+<p id="msg"></p>
+
+<script>
+document.getElementById("reportForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let number = document.getElementById("number").value;
+  let reason = document.getElementById("reason").value;
+
+  if(number === ""){
+    document.getElementById("msg").innerText = "Mete nimewo a!";
+    return;
+  }
+
+  document.getElementById("msg").innerText = 
+    "Rapò a voye pou " + number + " pou rezon: " + reason;
+});
+</script>
+
+</body>
+</html>
